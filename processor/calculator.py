@@ -31,10 +31,11 @@ for station_pair in StationToStationJson["StationToStationInfos"]:
                     print("Transfer additional time")
                     SourceStationLines = [source_station_item["LineCode1"], source_station_item["LineCode2"], source_station_item["LineCode3"]]
                     DestinationStationLines = [dest_station_item["LineCode1"], dest_station_item["LineCode2"], dest_station_item["LineCode3"]]
-                    transfer_time = 0
+                    transfer_time = 1
                     for source_line in SourceStationLines:
-                        if source_line not in DestinationStationLines:
-                            transfer_time = 1
+                        if source_line in DestinationStationLines:
+                            transfer_time = 0
+                            break
                     print(transfer_time)
                     trip_time = trip_time + transfer_time
 
