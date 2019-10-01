@@ -39,15 +39,28 @@ for station_pair in StationToStationJson["StationToStationInfos"]:
                     print(transfer_time)
                     trip_time = trip_time + transfer_time
 
-                    print("Time to platform")
+                    print("Time to platform at origin")
                     TwoMinuteStations = ["A01", "C01", "B01", "F01", "B06", "E06", "D03", "F03"]
                     ThreeMinuteStations = ["C05", "B10"]
-                    station_code = source_station_item["Code"]
+                    source_station_code = source_station_item["Code"]
 
-                    if station_code in TwoMinuteStations:
+                    if source_station_code in TwoMinuteStations:
                         print(2)
                         trip_time = trip_time + 2
-                    elif station_code in ThreeMinuteStations:
+                    elif source_station_code in ThreeMinuteStations:
+                        print(3)
+                        trip_time = trip_time + 3
+                    else:
+                        print(1)
+                        trip_time = trip_time + 1
+
+                    print("Time to platform at destination")
+                    dest_station_code = dest_station_item["Code"]
+
+                    if dest_station_code in TwoMinuteStations:
+                        print(2)
+                        trip_time = trip_time + 2
+                    elif dest_station_code in ThreeMinuteStations:
                         print(3)
                         trip_time = trip_time + 3
                     else:
