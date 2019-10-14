@@ -21,6 +21,15 @@ import {
   Button
 } from '@material-ui/core'
 
+import {
+  Directions,
+  Schedule,
+  TransferWithinAStation,
+  AirlineSeatReclineNormal,
+  TransitEnterexit,
+  HourglassFull
+} from '@material-ui/icons'
+
 import { ThemeProvider } from '@material-ui/styles'
 import {
   createMuiTheme,
@@ -238,31 +247,52 @@ const Home = () => {
                       as the sum of:
                       <List>
                         <ListItem>
-                          The travel time between the stations according to the
-                          journey planner,
-                        </ListItem>
-                        <ListItem>
-                          The maximum amout of time to wait at the platform for
-                          a train based on{' '}
-                          <Link
-                            href='https://www.wmata.com/schedules/timetables/index.cfm'
-                            target='_blank'
-                            rel='nofollow'
-                          >
-                            WMATA's timetable
-                          </Link>
-                          ,
-                        </ListItem>
-                        <ListItem>
+                          <ListItemIcon>
+                            <Directions />
+                          </ListItemIcon>
                           <ListItemText>
-                            The time to travel between the gate line and the
-                            platform; specifically, 3 minutes at Rosslyn and
-                            Wheaton, 2 minutes at Fort Totten, Gallery Place,
-                            L'Enfant Plaza and Metro Center, and 1 minute
-                            everywhere else,
+                            The travel time between the stations according to
+                            the journey planner,
                           </ListItemText>
                         </ListItem>
                         <ListItem>
+                          <ListItemIcon>
+                            <Schedule />
+                          </ListItemIcon>
+                          <ListItemText>
+                            The maximum amout of time to wait at the platform
+                            for a train based on{' '}
+                            <Link
+                              href='https://www.wmata.com/schedules/timetables/index.cfm'
+                              target='_blank'
+                              rel='nofollow'
+                            >
+                              WMATA's timetable
+                            </Link>
+                            ,
+                          </ListItemText>
+                        </ListItem>
+                        <ListItem>
+                          <ListItemIcon>
+                            <TransitEnterexit />
+                          </ListItemIcon>
+                          <ListItemText>
+                            The time to travel between the gate line and the
+                            platform at the origin and destination,
+                            <br />
+                            <small>
+                              3 minutes at Rosslyn and Wheaton,
+                              <br />2 minutes at Fort Totten, Gallery Place,
+                              L'Enfant Plaza and Metro Center,
+                              <br />
+                              and 1 minute at all other stations
+                            </small>
+                          </ListItemText>
+                        </ListItem>
+                        <ListItem>
+                          <ListItemIcon>
+                            <TransferWithinAStation />
+                          </ListItemIcon>
                           <ListItemText>
                             and 1 minute to complete transfers across platforms.
                           </ListItemText>
@@ -283,17 +313,26 @@ const Home = () => {
                     <Typography paragraph>
                       <List>
                         <ListItem>
+                          <ListItemIcon>
+                            <AirlineSeatReclineNormal />
+                          </ListItemIcon>
                           <ListItemText>
                             If both stations share a rail line, no transfer time
                             is included, even if a transfer might have taken
-                            place. For example, this app includes no transfer
-                            time for a journey from Pentagon City to Capitol
-                            South as both stations are on the Blue Line, even
-                            though a route on the Yellow Line to Gallery Place
-                            might have been faster.
+                            place. <br />{' '}
+                            <small>
+                              For example, this app includes no transfer time
+                              for a journey from Pentagon City to Capitol South
+                              as both stations are on the Blue Line, even though
+                              a route on the Yellow Line to Gallery Place might
+                              have been faster.
+                            </small>
                           </ListItemText>
                         </ListItem>
                         <ListItem>
+                          <ListItemIcon>
+                            <TransferWithinAStation />
+                          </ListItemIcon>
                           <ListItemText>
                             If both stations do not share a rail line, 1 minute
                             is added for transfers, even if the transfer time
@@ -301,6 +340,9 @@ const Home = () => {
                           </ListItemText>
                         </ListItem>
                         <ListItem>
+                          <ListItemIcon>
+                            <HourglassFull />
+                          </ListItemIcon>
                           <ListItemText>
                             This app only includes the maximum expected wait
                             time for the next train at the source station, and
